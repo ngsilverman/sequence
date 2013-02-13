@@ -24,6 +24,7 @@ function Sequence() {
   };
 
   this.process = function(step) {
+    if (typeof step == 'function') step = { execute: step };
     step.delay = step.delay || 0;
     step.execute = step.execute || function(){};
   };
