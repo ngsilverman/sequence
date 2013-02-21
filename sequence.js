@@ -10,11 +10,11 @@ function Sequence() {
 
     var step = this.steps.shift(); // removes it from the array as well
   
-    window.setTimeout(_.bind(function() {
+    window.setTimeout(function() {
       if (step.execute() !== false) {
         this.run();
       }
-    }, this), step.delay);
+    }.bind( this ), step.delay);
   };
 
   this.prepend = function(step) {
